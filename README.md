@@ -27,3 +27,7 @@ Dans le repertoire api pour lancer le dockerfile du back : ```docker build . -t 
 ## Déploiement application
 
 Mise en place du déploiement dans le dossier k8s dans /api, pour la partie doodle.
+
+### Diagramme de déploiement
+
+![diagramme UML de déploiement de la machine vituelle](assets/images/diagramme_deploiement.png)
