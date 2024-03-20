@@ -2,6 +2,8 @@ version: "3.8"
 services:
   db:
     image: mysql
+    volumes:
+      - ./src/main/ressources/db/migration/:/docker-entrypoint-initdb.d
     ports:
       - "3306:3306"
     environment:
@@ -20,3 +22,21 @@ services:
     restart: always
     ports:
       - "2525:25"
+  api:
+    container_name: api
+    image: tlcdoodleback
+    command: ["java", "-jar", "/app/tlcdemoApp-1.0.0-SNAPSHOT-runner.jar", "-Dquarkus.http.host=0.0.0.0", "-Dquarkus.datasource.username=tlc", "-Dquarkus.datasource.password=tlc", "-Dquarkus.datasource.jdbc.url=jdbc:mysql://db:3306/tlc?useUnicode=true&serverTimezone=Europe/Paris", "-Ddoodle.internalPadUrl=http://etherpad:9001", "-Ddoodle.externalPadUrl=http://pad.tlc.fr:90/"]
+    restart: always
+  front:
+    container_name: front
+    image: tlcdoodlefront
+    ports:
+      - 80:80
+    volumes:
+      - ./exempleconf/doodle.conf:/etc/nginx/conf.d/doodle.conf
+      - ./exempleconf/myadmin.conf:/etc/nginx/conf.d/myadmin.conf
+      - ./exempleconf/pad.conf:/etc/nginx/conf.d/pad.conf
+  myadmin:
+    image: phpmyadmin
+    environment:
+      - PMA_HOST=db

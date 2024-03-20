@@ -1,0 +1,8 @@
+# Deploys a new Namespace for the doodle Pods
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: doodle # Change this value if you want a different namespace name
+  labels:
+    name: doodle # Change this value to match metadata.name
+---
