@@ -2,7 +2,7 @@
 
 ## Auteur
 
-**CHAPLAIS Alexandre**
+**CHAPLAIS Alexandre** et **BRAMBAN Kenny**
 
 ## Objectifs
 
