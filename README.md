@@ -1,6 +1,6 @@
 # TP Projet
 
-## Auteur
+## Auteurs
 
 **CHAPLAIS Alexandre** et **BRAMBAN Kenny**
 
